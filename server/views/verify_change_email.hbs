@@ -1,19 +1,70 @@
 {{> header}}
+
 <section id="verify-change-email" class="section-container verify-page">
-  {{#if token_verified}}
-    <h2 hx-get="/" hx-trigger="load delay:1s" hx-target="body" hx-push-url="/">
-      Email address is verified. Redirecting to homepage...
-    </h2>
+
+{{#if token_verified}}
+
+```
+<div class="verification-status success">
+  {{> icons/check}}
+
+  <h1>Email Verified Successfully</h1>
+
+  <p>
+    Your new email address has been verified and updated successfully.
+  </p>
+
+  <p class="redirect-message">
+    Redirecting you to the homepage...
+  </p>
+
+  <div
+    hx-get="/"
+    hx-trigger="load delay:2s"
+    hx-target="body"
+    hx-push-url="/">
+  </div>
+</div>
+```
+
+{{else}}
+
+```
+<div class="verification-status error">
+  {{> icons/x}}
+
+  <h1>Email Verification Failed</h1>
+
+  <p>
+    We couldn't verify your email address. The verification link may be
+    invalid, expired, or already used.
+  </p>
+
+  {{#if user}}
+
+    <a
+      href="/settings"
+      class="btn btn-primary"
+      title="Account Settings">
+      Go to Settings →
+    </a>
+
   {{else}}
-    <h2>
-      {{> icons/x}}
-      Couldn't verify the email address. Please try again.
-    </h2>
-    {{#if user}}
-      <a href="/settings" title="Settings">Settings →</a>
-    {{else}}
-      <a href="/login" title="Log in or sign up">Log in / sign up →</a>
-    {{/if}}
+
+    <a
+      href="/login"
+      class="btn btn-primary"
+      title="Log in or Sign Up">
+      Log In / Sign Up →
+    </a>
+
   {{/if}}
+
+</div>
+```
+
+{{/if}}
+
 </section>
-{{> footer}}
+
+{{> footer}} 

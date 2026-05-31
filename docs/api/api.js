@@ -4,13 +4,13 @@ const p = require("../../package.json");
 module.exports = {
   openapi: "3.0.0",
   info: {
-    title: "Kutt.to",
-    description: "API reference for [http://kutt.to](http://kutt.to).\n",
+    title: "Trimly",
+    description: "API reference for Trimly.\n",
     version: p.version
   },
   servers: [
     {
-      url: "https://kutt.to/api/v2"
+      url: "https://trimly.example/api/v2"
     }
   ],
   tags: [

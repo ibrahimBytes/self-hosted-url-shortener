@@ -1,7 +1,7 @@
 {
-  "name": "kutt",
+  "name": "trimly",
   "version": "3.2.5",
-  "description": "Modern URL shortener.",
+  "description": "Trimly URL shortener.",
   "main": "./server/server.js",
   "scripts": {
     "dev": "node --watch-path=./server --watch-path=./custom server/server.js",
@@ -12,17 +12,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thedevs-network/kutt.git"
+    "url": "git+https://github.com/Ibrahim/Trimly.git"
   },
   "keywords": [
     "url-shortener"
   ],
-  "author": "Pouria Ezzati <ezzati.upt@gmail.com>",
+  "author": "Ibrahim",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thedevs-network/kutt/issues"
+    "url": "https://github.com/Ibrahim/Trimly/issues"
   },
-  "homepage": "https://github.com/thedevs-network/kutt#readme",
+  "homepage": "https://github.com/Ibrahim/Trimly#readme",
   "dependencies": {
     "bcryptjs": "2.4.3",
     "better-sqlite3": "11.8.1",

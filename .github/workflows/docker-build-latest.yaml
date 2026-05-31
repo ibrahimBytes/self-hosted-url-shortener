@@ -1,7 +1,7 @@
 name: docker-build-latest
 
 env:
-  dockerhub_repository: "kutt/kutt"
+  dockerhub_repository: "ibrahim/trimly"
   dockerhub_tag: "main"
 
 on:

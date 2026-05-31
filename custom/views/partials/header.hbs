@@ -1,0 +1,60 @@
+<header class="trimly-header">
+  <div class="logo-wrapper">
+    <a class="logo nav" href="/" title="{{site_name}}">
+      <img
+        src="/images/trimly-mark.svg"
+        alt="{{site_name}}"
+        width="40"
+        height="40" />
+      <span>{{site_name}}</span>
+    </a>
+  </div>
+
+  <nav aria-label="Primary navigation">
+    <ul>
+      {{#unless user}}
+        {{#unless login_disabled}}
+          <li>
+            <a
+              class="button primary"
+              href="/login"
+              title="Log in">
+              Log in
+            </a>
+          </li>
+        {{/unless}}
+      {{/unless}}
+
+      {{#if user}}
+        <li>
+          <a
+            class="nav"
+            href="/settings"
+            title="Settings">
+            Settings
+          </a>
+        </li>
+
+        {{#if isAdmin}}
+          <li>
+            <a
+              class="nav"
+              href="/admin"
+              title="Admin">
+              Admin
+            </a>
+          </li>
+        {{/if}}
+
+        <li>
+          <a
+            class="nav"
+            href="/logout"
+            title="Log out">
+            Log out
+          </a>
+        </li>
+      {{/if}}
+    </ul>
+  </nav>
+</header>

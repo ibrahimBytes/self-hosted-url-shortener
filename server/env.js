@@ -28,8 +28,8 @@ if (process.argv.includes("--production")) {
 
 const spec = {
   PORT: num({ default: 3000 }),
-  SITE_NAME: str({ example: "Kutt", default: "Kutt" }),
-  DEFAULT_DOMAIN: str({ example: "kutt.to", default: "localhost:3000" }),
+  SITE_NAME: str({ example: "Trimly", default: "Trimly" }),
+  DEFAULT_DOMAIN: str({ example: "trimly.example", default: "localhost:3000" }),
   LINK_LENGTH: num({ default: 6 }),
   LINK_CUSTOM_ALPHABET: str({ default: "abcdefghkmnpqrstuvwxyzABCDEFGHKLMNPQRSTUVWXYZ23456789" }),
   TRUST_PROXY: bool({ default: true }),
@@ -37,7 +37,7 @@ const spec = {
   DB_FILENAME: str({ default: "db/data" }),
   DB_HOST: str({ default: "localhost" }),
   DB_PORT: num({ default: 5432 }),
-  DB_NAME: str({ default: "kutt" }),
+  DB_NAME: str({ default: "trimly" }),
   DB_USER: str({ default: "postgres" }),
   DB_PASSWORD: str({ default: "" }),
   DB_SSL: bool({ default: false }),
@@ -60,7 +60,7 @@ const spec = {
   MAIL_PORT: num({ default: 587 }),
   MAIL_SECURE: bool({ default: false }),
   MAIL_USER: str({ default: "" }),
-  MAIL_FROM: str({ default: "", example: "Kutt <support@kutt.to>" }),
+  MAIL_FROM: str({ default: "", example: "Trimly <support@trimly.example>" }),
   MAIL_PASSWORD: str({ default: "" }),
   OIDC_ENABLED: bool({ default: false }),
   OIDC_ISSUER: str({ default: "" }),

@@ -359,4 +359,4 @@ htmx.defineExtension("preload", {
       node.querySelectorAll("a,[hx-get],[data-hx-get]").forEach(init)
     })
   }
-})
+}) 

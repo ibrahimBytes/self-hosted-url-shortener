@@ -123,7 +123,7 @@ function rateLimit(params) {
   });
 }
 
-// redirect to create admin page if the kutt instance is ran for the first time
+// redirect to create admin page if the Trimly instance is ran for the first time
 async function adminSetup(req, res, next) {
   const isThereAUser = req.user || (await query.user.findAny());
   if (isThereAUser) {

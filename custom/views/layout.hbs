@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="icon" type="image/svg+xml" href="/images/trimly-mark.svg" />
+  <link rel="icon" sizes="196x196" href="/images/favicon-196x196.png" />
+  <link rel="icon" sizes="32x32" href="/images/favicon-32x32.png" />
+  <link rel="icon" sizes="16x16" href="/images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/images/favicon-196x196.png" />
+  <link rel="mask-icon" href="/images/trimly-mark.svg" color="#0f766e" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta property="fb:app_id" content="123456789" />
+  <meta name="htmx-config" content='{"withCredentials":true}'>
+  <meta property="og:url" content="https://{{default_domain}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Trimly" />
+  <meta property="og:title" content="Trimly | Modern Link Management Platform" />
+  <meta property="og:image" content="https://{{default_domain}}/images/trimly-card.svg" />
+  <meta property="og:description" content="Create, manage, track, and secure links from a single workspace." />
+  <meta name="twitter:url" content="https://{{default_domain}}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Trimly | Modern Link Management Platform" />
+  <meta name="twitter:description" content="Powerful URL shortening, analytics, and branded link management." />
+  <meta name="twitter:image" content="https://{{default_domain}}/images/trimly-card.svg" />
+  <meta name="author" content="Ibrahim" />
+  <meta name="description" content="Trimly is a Modern Link Management Platform. Create, manage, track, and secure links from a single workspace." />
+  <title>Trimly{{#if title}} | {{title}}{{else}} | Modern Link Management Platform{{/if}}</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  {{#each custom_styles}}
+    <link rel="stylesheet" href="/css/{{this}}">
+  {{/each}}
+  {{{block "stylesheets"}}}
+</head>
+<body>
+  <div class="main-wrapper">
+    {{{body}}}
+  </div>
+
+  {{{block "scripts"}}}
+  <script src="/libs/htmx.min.js"></script>
+  <script src="/libs/qrcode.min.js"></script>
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

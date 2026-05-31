@@ -1,0 +1,46 @@
+<section id="apikey-wrapper">
+  <h2>Trimly API</h2>
+  <p>
+    Use the API to create, delete, and retrieve shortened URLs from your own tools.
+    Keep this key server-side and never expose it in client-side code.
+    <a href="/api/v2" title="Trimly API reference" target="_blank">
+      View API reference.
+    </a>
+  </p>
+  <div id="apikey">
+    {{#if user.apikey}}
+      <div class="clipboard small">
+        <button
+          type="button"
+          aria-label="Copy API key"
+          hx-on:click="handleShortURLCopyLink(this);"
+          data-url="{{user.apikey}}"
+        >
+        {{> icons/copy}}
+        </button>
+        {{> icons/check}}
+      </div>
+      <p
+        hx-on:click="handleShortURLCopyLink(this);"
+        data-url="{{user.apikey}}"
+      >
+        {{user.apikey}}
+      </p>
+    {{/if}}
+    {{#if error}}
+      <p class="error">{{error}}</p>
+    {{/if}}
+  </div>
+  <form
+    hx-post="/api/auth/apikey"
+    id="generate-apikey"
+    hx-target="#apikey-wrapper"
+    hx-swap="outerHTML"
+  >
+    <button type="submit" class="secondary">
+      <span>{{> icons/zap}}</span>
+      <span>{{> icons/spinner}}</span>
+      {{#if user.apikey}}Reg{{else}}G{{/if}}enerate key
+    </button>
+  </form>
+</section>

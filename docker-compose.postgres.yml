@@ -3,7 +3,7 @@ services:
     build:
       context: .
     volumes:
-      - custom:/kutt/custom
+      - custom:/trimly/custom
     environment:
         DB_CLIENT: pg
         DB_HOST: postgres

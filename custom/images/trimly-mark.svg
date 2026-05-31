@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Trimly">
+  <rect width="128" height="128" rx="24" fill="#0b1220"/>
+  <path d="M28 35h72v20H75v52H53V55H28z" fill="#f8fafc"/>
+  <path d="M76 26h26v26" fill="none" stroke="#a3e635" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M81 47 104 24" fill="none" stroke="#14b8a6" stroke-width="12" stroke-linecap="round"/>
+</svg>

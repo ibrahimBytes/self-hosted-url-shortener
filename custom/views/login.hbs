@@ -1,0 +1,16 @@
+{{> header}}
+<section class="trimly-auth-page">
+  <div class="trimly-auth-copy">
+    <p class="eyebrow">Trimly workspace</p>
+    <h1>Sign in to manage every link with confidence.</h1>
+    <p>Create branded short URLs, review analytics, secure sensitive destinations, and manage custom domains from one place.</p>
+  </div>
+  <div class="trimly-auth-panel">
+    {{#if login_disabled}}
+      {{> auth/login_disabled}}
+    {{else}}
+      {{> auth/form}}
+    {{/if}}
+  </div>
+</section>
+{{> footer}}

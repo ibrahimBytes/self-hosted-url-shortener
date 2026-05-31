@@ -1,0 +1,145 @@
+<main class="trimly-hero">
+  <section class="trimly-hero__copy">
+    <p class="eyebrow">Trimly</p>
+    <div id="shorturl">
+      {{#if link}}
+        <div class="clipboard">
+          <button
+            type="button"
+            aria-label="Copy short link"
+            hx-on:click="handleShortURLCopyLink(this);"
+            data-url="{{url}}"
+          >
+          {{> icons/copy}}
+          </button>
+          {{> icons/check}}
+        </div>
+        <h1
+          class="link"
+          hx-on:click="handleShortURLCopyLink(this);"
+          data-url="{{url}}"
+        >
+          {{link}}
+        </h1>
+      {{/if}}
+      {{#unless link}}
+        <h1>Modern Link Management Platform</h1>
+      {{/unless}}
+    </div>
+    <p class="trimly-hero__description">
+      Create, manage, track, and secure links from a single workspace.
+    </p>
+  </section>
+  <form
+    id="shortener-form"
+    hx-post="/api/links"
+    hx-trigger="submit queue:none"
+    hx-target="closest main"
+    hx-swap="outerHTML"
+    autocomplete="off"
+  >
+    <div class="target-wrapper {{#if errors.target}}error{{/if}}">
+      <input
+        id="target"
+        name="target"
+        type="text"
+        placeholder="Paste a long URL to create a Trimly link"
+        aria-label="Destination URL"
+        autofocus="true"
+        data-lpignore="true"
+        hx-preserve="true"
+      />
+      <button class="submit" aria-label="Create Trimly link">
+        {{> icons/send}}
+        {{> icons/spinner}}
+      </button>
+      {{#if errors.target}}<p class="error">{{errors.target}}</p>{{/if}}
+      {{#unless errors}}
+        {{#if error}}
+          <p class="error">{{error}}</p>
+        {{/if}}
+      {{/unless}}
+    </div>
+    <label id="advanced" class="checkbox">
+      <input
+        name="show_advanced"
+        type="checkbox"
+        hx-on:change="htmx.toggleClass('#advanced-options', 'hidden')"
+        {{#if show_advanced}}checked="true"{{/if}}
+      />
+      Customize domain, alias, security, and expiry
+    </label>
+    <section id="advanced-options" class="{{#unless show_advanced}}hidden{{/unless}}">
+      <div class="advanced-input-wrapper">
+        <label class="{{#if errors.domain}}error{{/if}}">
+          Domain
+          <select
+            id="domain"
+            name="domain"
+            hx-preserve="true"
+            hx-on:change="
+              const elm = document.querySelector('#customurl-label span');
+              if (!elm) return;
+              elm.textContent = event.target.value + '/';
+            "
+          >
+            <option value={{default_domain}}>{{default_domain}}</option>
+            {{#each domains}}
+              <option value={{address}}>{{address}}</option>
+            {{/each}}
+          </select>
+          {{#if errors.domain}}<p class="error">{{errors.domain}}</p>{{/if}}
+        </label>
+        <label id="customurl-label" class="{{#if errors.customurl}}error{{/if}}">
+          Custom alias
+          <span id="customurl-label-value" hx-preserve="true">{{default_domain}}/</span>
+          <input
+            type="text"
+            id="customurl"
+            name="customurl"
+            placeholder="campaign-name"
+            hx-preserve="true"
+            autocomplete="off"
+          />
+          {{#if errors.customurl}}<p class="error">{{errors.customurl}}</p>{{/if}}
+        </label>
+        <label class="{{#if errors.password}}error{{/if}}">
+          Password protection
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Optional password"
+            hx-preserve="true"
+            autocomplete="new-password"
+          />
+          {{#if errors.password}}<p class="error">{{errors.password}}</p>{{/if}}
+        </label>
+      </div>
+      <div class="advanced-input-wrapper">
+        <label class="expire-in {{#if errors.expire_in}}error{{/if}}">
+          Expiry window
+          <input
+            type="text"
+            id="expire_in"
+            name="expire_in"
+            placeholder="2 minutes, hours, or days"
+            hx-preserve="true"
+          />
+          {{#if errors.expire_in}}<p class="error">{{errors.expire_in}}</p>{{/if}}
+        </label>
+        <label class="description {{#if errors.description}}error{{/if}}">
+          Internal description
+          <input
+            type="text"
+            id="description"
+            name="description"
+            placeholder="Campaign, client, or note"
+            hx-preserve="true"
+          />
+          {{#if errors.description}}<p class="error">{{errors.description}}</p>{{/if}}
+        </label>
+      </div>
+    </section>
+  </form>
+</main>

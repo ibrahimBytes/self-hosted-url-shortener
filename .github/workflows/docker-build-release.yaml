@@ -1,7 +1,7 @@
 name: docker-build-release
 
 env:
-  dockerhub_repository: "kutt/kutt"
+  dockerhub_repository: "ibrahim/trimly"
 
 on:
   release:
