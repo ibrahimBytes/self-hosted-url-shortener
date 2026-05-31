@@ -1,3 +1,4 @@
+<img width="1892" height="945" alt="trimly" src="https://github.com/user-attachments/assets/47bfbe01-54bb-4256-8f4e-a9fef59b3aa6" />
 # Trimly
 
 A high-performance, self-hosted URL management platform by Ibrahim, built with Node.js and Express. Maintain complete ownership of your links with robust analytics, security, and flexible database support.
